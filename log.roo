@@ -1,0 +1,19 @@
+// Spring Roo 2.0.0.M2 [rev 003b42c] log opened at 2016-10-11 14:54:48
+project setup --topLevelPackage com.pnm
+jpa setup --provider HIBERNATE --database H2_IN_MEMORY 
+entity jpa --class ~.domain.Contact
+field string --fieldName userName
+field string --fieldName phoneNumber
+field date --fieldName birthDay --type java.util.Date
+field date --fieldName birthDay --type java.util.Date --dateFormat SHORT --force 
+repository jpa --entity ~.domain.Contact --interface ~.repo.ContactRepo 
+service --entity ~.domain.Contact --repository ~.repo.ContactRepo --interface ~.service.api.ContactService --class ~.service.impl.ContactImpl
+web mvc setup
+web mvc view setup --type THYMELEAF 
+web mvc controller --controller ~.web.ContactController --entity ~.domain.Contact --responseType THYMELEAF
+exit
+// Spring Roo 2.0.0.M2 [rev 003b42c] log closed at 2016-10-11 15:00:46
+// Spring Roo 2.0.0.M2 [rev 003b42c] log opened at 2016-10-11 15:33:39
+web mvc controller --controller ~.web.Angular --entity ~.domain.Contact --path angular --responseType JSON --service ~.service.api.ContactService 
+exit
+// Spring Roo 2.0.0.M2 [rev 003b42c] log closed at 2016-10-11 15:35:59
